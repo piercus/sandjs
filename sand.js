@@ -52,8 +52,8 @@ else var sand = global.sand = {};
           this.exports = this.fn(this.exports) || this.exports;
         }
       }
-      local.exports[alias || this.innerName] = this.exports;
       
+      local.exports[alias || this.innerName] = this.exports;
       return this.exports;
     }
   };
@@ -88,14 +88,14 @@ else var sand = global.sand = {};
     else if (typeof(requires) === 'undefined') requires = [];
     return this.grains[name] = new Grain(name, requires, fn, options);
   };
-  
-  sand.exports = {};
-  sand._grains = {};
+    
+  var id = 0;
   
   sand.require = function() {
     var args = Array.prototype.slice.call(arguments);
     if (args.length === 1) {
-      return (sand.grains[args[0]].use(this, this, null));
+      var app = new Grain('require-' + ++id);
+      return (sand.grains[args[0]].use(app, app, null));
     }
     
     //--- parsing the requires
@@ -110,7 +110,7 @@ else var sand = global.sand = {};
     }
     //---
     
-    var app = new Grain('anonymous');
+    var app = new Grain('require-' + ++id);
     requires.each(function(require) {
       var split = require.split('->'); // little repetition here for performance reasons
       sand.getGrain(split[0]).use(app, app, null, split[1] || null);
