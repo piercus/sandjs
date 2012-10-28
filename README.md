@@ -1,7 +1,7 @@
 # Sand.js
 
 
-JS Sandboxing made easy, Lightweight module manager for Javascript.
+JS Sandboxing made easy, lightweight module manager for JavaScript.
 
 ## Introduction
 
@@ -31,7 +31,9 @@ In myProject/second.js (by convention)
       console.log("Execute second");
       
       return function(){
+      
         console.log("Hello World");
+        
         return {
           first : r.first,
           foo2 : "bar2"
@@ -40,7 +42,7 @@ In myProject/second.js (by convention)
     });
 
 ## sand.require
-
+### Basic
     
     //in main.js
     
@@ -54,15 +56,38 @@ In myProject/second.js (by convention)
     });
     //=> Execute first
     //=> { foo : "bar" };
-    
+
+### Recursively
+
     // or require a folder
     sand.require("myProject/*", function(r) {
       console.log(r.myProject);
+      console.log(r.myProject.second());
     });
     //=> Execute first
     //=> Execute second
-    //=> { first : { "foo" : "bar"}, second : { first : { "foo" : "bar" }, foo2 : "bar2" } }
+    //=> { first : { "foo" : "bar"}, second : [Function] }
+    //=> { first : { "foo" : "bar"}, foo2 : "bar2" }
     
+
+### With alias
+
+    // we require first by name and we use it in a callback function
+    sand.require("myProject/first->aliasName", function(r) {
+      console.log(r.aliasName);
+    });
+    //=> Execute first
+    //=> { foo : "bar" };
+
+## Contribute
+
+Add an issue if you find bugs or please
+
+*   Fork me
+*   Add your tests
+*   Make your contribution
+*   Pass all the tests 
+*   Add a pull request
 
 ## Librairies
 
