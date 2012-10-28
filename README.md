@@ -8,9 +8,9 @@ JS Sandboxing made easy, lightweight module manager for JavaScript.
 Sand.js is a part of the fjs project.
 Sand.js is a module manager that would fullfill the following requirements :
 
-*   lightweight, sandjs is not a librairy, it's a middleware. See [Why is Sandjs lightweight](/lightweight)
-*   fast, fast to code, fast to execute. See [Why is Sand.js fast](/fast)
-*   cross-plateform, module manager is the key to code portability. See [Why is Sand.js portable](/portable)
+*   lightweight, sandjs is not a librairy, it's a middleware. See [Why is Sandjs lightweight](wiki/Why-is-Sand.js-lightweight-%3F)
+*   fast, fast to code, fast to execute. See [Why is Sand.js fast](wiki/Why-is-Sand.js-fast-%3F)
+*   cross-plateform, module manager is the key to code portability. See [Why is Sand.js make your code portable](wiki/Why-Sand.js-make-your-code-more-portable-%3F)
 
 ## sand.define
 In myProject/first.js (by convention)
