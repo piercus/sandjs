@@ -13,9 +13,8 @@ Sand.js is a module manager that would fullfill the following requirements :
 *   cross-plateform, module manager is the key to code portability. See [Why is Sand.js portable](/portable)
 
 ## sand.define
-Let's make a new project called myProject, we define the modules
+In myProject/first.js (by convention)
 
-    //in myProject/first.js (by convention)
     sand.define("myProject/first", function(r) {
       
       console.log("Execute first");
@@ -25,7 +24,8 @@ Let's make a new project called myProject, we define the modules
       };
     });
     
-    //in myProject/second.js (by convention)
+In myProject/second.js (by convention)
+
     sand.define("myProject/second", ["myProject/first"], function(r) {
       
       console.log("Execute second");
