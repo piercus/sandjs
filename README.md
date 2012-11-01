@@ -59,7 +59,7 @@ In myProject/second.js (by convention)
 
 ### Recursively
 
-    // or require a folder
+    // folder/* require all the files in a folder
     sand.require("myProject/*", function(r) {
       console.log(r.myProject);
       console.log(r.myProject.second());
