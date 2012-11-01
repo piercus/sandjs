@@ -1,0 +1,16 @@
+{
+  "author": "fjs",
+  "name": "sandjs",
+  "description": "JS Sandboxing made easy, lightweight module manager for JavaScript.",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fjs/sandjs.git"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}
