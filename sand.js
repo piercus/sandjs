@@ -1,5 +1,5 @@
 if (typeof(window) !== 'undefined') var sand = window.sand = {};
-else var sand = global.sand = {};
+else var sand = global.sand = module.exports = {};
 
 (function(sand) {
   sand.env = typeof(window) === 'undefined' ? 'node' : 'browser';
