@@ -49,7 +49,7 @@ else var sand = global.sand = module.exports = {};
         }
         
         if (this.fn) {
-          this.exports = this.fn(this.exports) || this.exports;
+          this.exports = this.fn(this.exports) || this.exports;
         }
       }
       
