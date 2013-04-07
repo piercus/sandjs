@@ -28,10 +28,10 @@ else var sand = global.sand = module.exports = {};
     this.path = name.split('/');
     this.innerName = this.path.last();
 
-    var g = this;
-    this.requires = requires.map(function(r){
-        return g.resolve(r, g.name);
-    });
+    this.requires = [];
+    for(var i = 0; i < requires.length; i++){
+      this.requires[i] = this.resolve(requires[i], this.name);
+    }
 
     this.fn = fn;
     if (options) for (var i in options) this[i] = options[i];

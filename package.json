@@ -2,7 +2,7 @@
   "author": "fjs",
   "name": "sandjs",
   "description": "JS Sandboxing made easy, lightweight module manager for JavaScript.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "repository": {
     "type": "git",
     "url": "git://github.com/fjs/sandjs.git"
