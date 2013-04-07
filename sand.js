@@ -28,9 +28,9 @@ else var sand = global.sand = module.exports = {};
     this.path = name.split('/');
     this.innerName = this.path.last();
 
-    this.requires = [];
-    for(var i = 0; i < requires.length; i++){
-      this.requires[i] = this.resolve(requires[i], this.name);
+    this.requires = [], rs = requires || [];
+    for(var i = 0; i < rs.length; i++){
+      this.requires[i] = this.resolve(rs[i], this.name);
     }
 
     this.fn = fn;
