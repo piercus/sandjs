@@ -68,12 +68,12 @@ else var sand = global.sand = module.exports = {};
         if(mName[1] === "/"){
 
           var path = baseName.split("/");
-          return this.resolve(mName.substr(2), path.slice(0,path.length-1).join("/"));
+          return path.slice(0,path.length-1).join("/")+mName.substr(1);
         
         } else if(mName[1] === "." && mName[2] === "/"){
 
           var path = baseName.split("/");
-          return this.resolve(mName.substr(3), path.slice(0,path.length-2).join("/"));
+          return path.slice(0,path.length-2).join("/") + mName.substr(2);
         
         } 
       }
