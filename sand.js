@@ -25,8 +25,14 @@ else var sand = global.sand = module.exports = {};
     this._grains = {};
     this.exports = {};
     this.name = name;
-    this.innerName = name.split('/').last();
-    this.requires = requires;
+    this.path = name.split('/');
+    this.innerName = this.path.last();
+
+    var g = this;
+    this.requires = requires.map(function(r){
+        return g.resolve(r, g.name);
+    });
+
     this.fn = fn;
     if (options) for (var i in options) this[i] = options[i];
   };
@@ -55,6 +61,21 @@ else var sand = global.sand = module.exports = {};
       
       local.exports[alias || this.innerName] = this.exports;
       return this.exports;
+    },
+
+    resolve : function(mName, baseName){
+      if(mName[0] === ".") {
+        if(mName[1] === "/"){
+
+          var path = baseName.split("/");
+          return this.resolve(mName.substr(2), path.slice(0,path.length-1).join("/"));
+        
+        } else if(mName[1] === "." && file[2] === "/"){
+          var path = baseName.split("/");
+          return this.resolve(mName.substr(3), path.slice(0,path.length-2).join("/"));
+        } 
+      }
+      return mName;
     }
   };
   
